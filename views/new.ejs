@@ -1,0 +1,130 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>new form</title>
+</head>
+
+<body>
+    <form method="post" action="/posts">
+        <input placeholder="username" type="text" name="username">
+        <br>
+        <br>
+        <textarea name="content"></textarea>
+        <br>
+        <br>
+        <button>submit</button>
+    </form>
+</body>
+
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Post • Just Say It</title>
+
+    <link href="/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <a href="/posts" class="back-btn">
+            ← Back to posts
+        </a>
+
+
+        <div class="form-card">
+
+            <div class="form-header">
+
+                <p class="tag">NEW POST</p>
+
+                <h1>Say something.</h1>
+
+                <p>
+                    Share whatever is on your mind.
+                </p>
+
+            </div>
+
+
+            <form method="post" action="/posts">
+
+                <label for="username">
+                    Username
+                </label>
+
+                <input id="username" type="text" name="username" placeholder="Enter your username" required>
+
+
+                <label for="content">
+                    Your content
+                </label>
+
+                <textarea id="content" name="content" placeholder="What's on your mind?" required></textarea>
+
+
+                <div class="form-actions">
+
+                    <a href="/posts" class="cancel-btn">
+                        Cancel
+                    </a>
+
+                    <button type="submit" class="save-btn">
+                        Publish Post →
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+    <!-- your existing HTML -->
+
+    <div class="theme-toggle">
+        <button id="themeToggle" type="button">
+            🌙
+        </button>
+    </div>
+
+    <script>
+        const themeButton = document.getElementById("themeToggle");
+
+        if (localStorage.getItem("theme") === "dark") {
+            document.body.classList.add("dark-mode");
+            themeButton.textContent = "☀️";
+        }
+
+        themeButton.addEventListener("click", function () {
+
+            document.body.classList.toggle("dark-mode");
+
+            if (document.body.classList.contains("dark-mode")) {
+                localStorage.setItem("theme", "dark");
+                themeButton.textContent = "☀️";
+            } else {
+                localStorage.setItem("theme", "light");
+                themeButton.textContent = "🌙";
+            }
+
+        });
+    </script>
+
+</body>
+
+</html>
+
+
+</body>
+
+</html>

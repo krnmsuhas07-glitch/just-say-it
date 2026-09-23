@@ -1,0 +1,157 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <h2>Just Say It</h2>
+    <% for(post of posts) { %>
+        <div>
+            <h3>@<%=post.username%>
+            </h3>
+            <h4>content : <%= post.content%>
+            </h4>
+            <button><a href="http://localhost:8080/posts/<%= post.id %>">See in detail</a></button>
+            <button><a href="http://localhost:8080/posts/<%= post.id %>/edit">edit it</a></button>
+            <form method="post" action="/posts/<%=post.id%>?_method=DELETE" style="display: inline;">
+                <button>Delete</button>
+            </form>
+        </div>
+        <% } %>
+            <br>
+            <br>
+            <button><a href="http://localhost:8080/posts/new">Create new post!</a></button>
+</body>
+
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Just Say It</title>
+
+    <link href="/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Header -->
+        <header>
+            <div>
+                <p class="tag">SOCIAL • CRUD</p>
+                <h1>Just Say It.</h1>
+                <p class="subtitle">
+                    Say what you want. Manage what you post.
+                </p>
+            </div>
+
+            <a href="/posts/new" class="create-btn">
+                + Create Post
+            </a>
+        </header>
+
+
+        <!-- Posts -->
+        <main class="posts-container">
+
+            <% for(post of posts) { %>
+
+                <div class="post-card">
+
+                    <div class="post-top">
+
+                        <div class="avatar">
+                            <%= post.username.charAt(0).toUpperCase() %>
+                        </div>
+
+                        <div>
+                            <h3>@<%= post.username %>
+                            </h3>
+                            <span>Post #<%= post.id %></span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="post-content">
+                        <p>
+                            <%= post.content %>
+                        </p>
+                    </div>
+
+
+                    <div class="post-actions">
+
+                        <a href="/posts/<%= post.id %>" class="action view">
+                            View
+                        </a>
+
+                        <a href="/posts/<%= post.id %>/edit" class="action edit">
+                            Edit
+                        </a>
+
+                        <form method="post" action="/posts/<%= post.id %>?_method=DELETE">
+
+                            <button type="submit" class="action delete">
+                                Delete
+                            </button>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+                <% } %>
+
+        </main>
+
+    </div>
+    <!-- your existing HTML -->
+
+    <div class="theme-toggle">
+        <button id="themeToggle" type="button">
+            🌙
+        </button>
+    </div>
+
+    <script>
+        const themeButton = document.getElementById("themeToggle");
+
+        if (localStorage.getItem("theme") === "dark") {
+            document.body.classList.add("dark-mode");
+            themeButton.textContent = "☀️";
+        }
+
+        themeButton.addEventListener("click", function () {
+
+            document.body.classList.toggle("dark-mode");
+
+            if (document.body.classList.contains("dark-mode")) {
+                localStorage.setItem("theme", "dark");
+                themeButton.textContent = "☀️";
+            } else {
+                localStorage.setItem("theme", "light");
+                themeButton.textContent = "🌙";
+            }
+
+        });
+    </script>
+
+</body>
+
+</html>
+
+</body>
+
+</html>

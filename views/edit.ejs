@@ -1,0 +1,122 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>edit</title>
+</head>
+
+<body>
+    <h4>Edit ur Content..</h4>
+    <br>
+    <form method="post" action="/posts/<%= post.id %>?_method=PATCH">
+        <textarea name="content"><%= post.content %></textarea>
+        <button>submit</button>
+    </form>
+
+</body>
+
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Edit Post • Just Say It</title>
+
+    <link href="/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <a href="/posts/<%= post.id %>" class="back-btn">
+            ← Back to post
+        </a>
+
+
+        <div class="form-card">
+
+            <div class="form-header">
+
+                <p class="tag">EDIT POST</p>
+
+                <h1>Edit your post.</h1>
+
+                <p>
+                    Make your changes and save them.
+                </p>
+
+            </div>
+
+
+            <form method="post" action="/posts/<%= post.id %>?_method=PATCH">
+
+                <label for="content">
+                    Your content
+                </label>
+
+                <textarea id="content" name="content" placeholder="What's on your mind?"
+                    required><%= post.content %></textarea>
+
+
+                <div class="form-actions">
+
+                    <a href="/posts/<%= post.id %>" class="cancel-btn">
+                        Cancel
+                    </a>
+
+                    <button type="submit" class="save-btn">
+                        Save Changes →
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+    <!-- your existing HTML -->
+
+    <div class="theme-toggle">
+        <button id="themeToggle" type="button">
+            🌙
+        </button>
+    </div>
+
+    <script>
+        const themeButton = document.getElementById("themeToggle");
+
+        if (localStorage.getItem("theme") === "dark") {
+            document.body.classList.add("dark-mode");
+            themeButton.textContent = "☀️";
+        }
+
+        themeButton.addEventListener("click", function () {
+
+            document.body.classList.toggle("dark-mode");
+
+            if (document.body.classList.contains("dark-mode")) {
+                localStorage.setItem("theme", "dark");
+                themeButton.textContent = "☀️";
+            } else {
+                localStorage.setItem("theme", "light");
+                themeButton.textContent = "🌙";
+            }
+
+        });
+    </script>
+
+</body>
+
+</html>
+
+
+</body>
+
+</html>
