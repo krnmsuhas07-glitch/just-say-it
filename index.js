@@ -30,7 +30,7 @@ let posts = [{
 },]
 
 app.get("/", (req, res) => {
-    res.send("working fine ...")
+    res.render("/posts");
 })
 app.get("/posts", (req, res) => {
     res.render("index.ejs", { posts });
