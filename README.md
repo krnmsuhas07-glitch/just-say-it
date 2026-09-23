@@ -1,5 +1,7 @@
 # 💬 Just Say It
 
+the deployed link : https://just-say-it-3.onrender.com/posts
+
 Just Say It is a simple CRUD web app I built while learning **Node.js and Express.js**.
 
 The main idea was to understand how a frontend communicates with a backend, how routes work, and how CRUD operations are handled using Express.
